@@ -265,7 +265,7 @@ hr {
   color: #ffffff;
 }
 #topbar #topbar-search {
-  width: 250px;
+  width: 1100px;
   float: left;
 }
 #topbar #topbar-search i {
@@ -517,7 +517,7 @@ hr {
 }
 #topbar .navbar-top-links .dropdown-user li a:hover,
 #topbar .navbar-top-links .dropdown-user li a:focus {
-  background: #f7f7f8 !important;
+  background: #dcdcdc !important;
 }
 #topbar .navbar-top-links .dropdown-user li a i {
   margin-right: 5px;
@@ -4480,7 +4480,7 @@ color:#58636b;
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
   color: #999999;
-  background-color: #dbdbdb;
+  background-color: #dcdcdc;
   border-color: #c6c6c6;
 }
 .btn-default:active,
@@ -7013,4 +7013,169 @@ ul.chats li.out .message {
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
   border: 1px solid #e5e5e5;
+}
+
+#dialog{
+    position: absolute;
+    width: 420px;
+    height: 250px;
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    margin-top: calc(17% - 5%);
+    margin-left: calc(50% - 10%);
+    overflow-y: hidden;
+    z-index: 150;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+#username{
+    width: 75%;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 8px;
+}
+
+#lblSearch{
+  margin-left: 100px;
+}
+
+#title{
+  margin-left: 25px;
+  color: black;
+}
+
+#edit{
+  margin-left: 75%;
+}
+
+#delete{
+  margin-left: 85%;
+}
+
+.remove {
+  position: relative;
+  border-radius: 10px;
+  width: 100px; height: 30px;
+  background: #E74C3C;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  transition: color .3s;
+  /* Typo */
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.remove:after {
+  position: absolute;
+  top: 90%; left: 0;
+  width: 100%; height: 100%;
+  background: #C0392B;
+  content: "";
+  z-index: -2;
+  transition: transform .3s;
+}
+
+.remove:hover::after {
+  transform: translateY(-80%);
+  transition: transform .3s;
+}
+
+.add {
+  position: relative;
+  border-radius: 10px;
+  width: 100px; height: 30px;
+  background: #00A2FF;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  transition: color .3s;
+  /* Typo */
+  line-height: 30px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 10px;
+  margin-left: 80px;
+}
+
+.add:after {
+  position: absolute;
+  top: 90%; left: 0;
+  width: 100%; height: 100%;
+  background: #007EC7;
+  content: "";
+  z-index: -2;
+  transition: transform .3s;
+}
+
+.add:hover::after {
+  transform: translateY(-80%);
+  transition: transform .3s;
+}
+
+.cancel {
+  position: relative;
+  border-radius: 10px;
+  width: 100px; height: 30px;
+  background: #FFC171;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  transition: color .3s;
+  /* Typo */
+  line-height: 30px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.cancel:after {
+  position: absolute;
+  top: 90%; left: 0;
+  width: 100%; height: 100%;
+  background: #FFB049;
+  content: "";
+  z-index: -2;
+  transition: transform .3s;
+}
+
+.cancel:hover::after {
+  transform: translateY(-80%);
+  transition: transform .3s;
+}
+
+#lblSearch{
+  color: #fff;
+}
+
+#backColor{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
