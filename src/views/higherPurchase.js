@@ -1,6 +1,7 @@
 import React from 'react'
 import Topbar from '../components/indexPage/topbar'
 import Sidebar from './../components/higherPurchasePage/sidebar'
+import Content from './../components/higherPurchasePage/content'
 //import UserForm from './../components/higherPurchasePage/userForm'
 import './../../src/stylesheets/main.css'
 //import './../../stylesheets/jquery-ui-1.10.4.custom.min.css'
@@ -16,7 +17,7 @@ class HigherPurchase extends React.Component {
   render() {
     return <div><Topbar/>
     <Sidebar/>
-    
+    <Content/>
     </div>
   }
 }

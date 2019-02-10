@@ -28,19 +28,19 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-violet" />
             </i><span className="menu-title">Higher Purchase</span></Link> 
         </li>
-        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
+        <li><Link to="/higherPurchase/items">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">&nbsp;&nbsp;Items</span></Link>
         </li>
-        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
+        <li><Link to="/higherPurchase/agreement">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">&nbsp;&nbsp;Agreement</span></Link>
         </li>
-        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
+        <li><Link to="/higherPurchase/payments">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">&nbsp;&nbsp;Payments</span></Link>
         </li>
-        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
+        <li><Link to="/higherPurchase/reports">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">&nbsp;&nbsp;Reports</span></Link>
         </li>
@@ -73,29 +73,7 @@ class Sidebar extends React.Component{
   </nav>
   {/*END SIDEBAR MENU*/}
   {/*BEGIN CHAT FORM*/}
-  <div id="page-wrapper">
-    {/*BEGIN TITLE & BREADCRUMB PAGE*/}
-    <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
-      <div className="page-header pull-left">
-        <div className="page-title">
-          Higher Purchase</div>
-      </div>
-      <ol className="breadcrumb page-breadcrumb pull-right">
-        <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="hidden"><a href="#">Higher Purchase</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="active">Higher Purchase</li>
-      </ol>
-      <div className="clearfix">
-      </div>
-    </div>
-    {/*END TITLE & BREADCRUMB PAGE*/}
-    {/*BEGIN CONTENT*/}
-    <div className="page-content">
-      <UserForm/>
-    </div>
-    {/*END CONTENT*/}
-    {/*END FOOTER*/}
-  </div>
+  
   {/*END PAGE WRAPPER*/}
 </div>
 

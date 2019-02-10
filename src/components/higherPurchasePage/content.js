@@ -1,20 +1,17 @@
 import React from 'react'
-import Topbar from './../topbar'
-import Sidebar from './../sidebar'
-
-class payments extends React.Component {
+//import Topbar from './../topbar'
+//import Sidebar from './../sidebar'
+import UserForm from './../higherPurchasePage/userForm'
+class content extends React.Component {
     render() {
       return (
         <div>
-          <Topbar/>
-          <Sidebar/>
-          <div>
           <div id="page-wrapper">
     {/*BEGIN TITLE & BREADCRUMB PAGE*/}
     <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
       <div className="page-header pull-left">
         <div className="page-title">
-          Higher Purchase - Payments</div>
+          Higher Purchase</div>
       </div>
       <ol className="breadcrumb page-breadcrumb pull-right">
         <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
@@ -27,15 +24,14 @@ class payments extends React.Component {
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div className="page-content">
-      
+      <UserForm/>
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}
   </div>
         </div>
-        </div>
       )
     }
   }
   
-  export default payments
+  export default content

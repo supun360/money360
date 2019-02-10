@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 //import './index.css';
 import App from './App';
+import Agreement from './components/higherPurchasePage/Pages/agreement'
+import Items from './components/higherPurchasePage/Pages/items'
+import Payments from './components/higherPurchasePage/Pages/payments'
+import Reports from './components/higherPurchasePage/Pages/reports'
 import Customer from './views/Customer';
 import higherPurchase from './views/HigherPurchase';
 import * as serviceWorker from './serviceWorker';
 import NotFound from './views/NotFound';
+import items from './components/higherPurchasePage/Pages/items';
 //import HigherPurchase from './components/views/higherPurchase';
 
 const routing = (
@@ -25,8 +30,12 @@ const routing = (
       </ul> */}
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/customer" component={Customer} />
-        <Route path="/higherPurchase" component={higherPurchase} />
+        <Route exact path="/customer" component={Customer} />
+        <Route exact path="/higherPurchase" component={higherPurchase} />
+        <Route exact path="/higherPurchase/items" component={Items}/>
+        <Route exact path="/higherPurchase/payments" component={Payments}/>
+        <Route exact path="/higherPurchase/agreement" component={Agreement}/>
+        <Route exact path="/higherPurchase/reports" component={Reports}/>
         <Route component={NotFound} />
       </Switch>
         
