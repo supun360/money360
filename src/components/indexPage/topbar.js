@@ -29,7 +29,7 @@ class Topbar extends React.Component{
               <ul className="nav navbar navbar-top-links navbar-right mbn">
                 <li className="dropdown"><a data-hover="dropdown" href="#" className="dropdown-toggle"><i className="fa fa-bell fa-fw" /><span className="badge badge-green">3</span></a>
                 </li>
-                <li className="dropdown topbar-user"><a data-hover="dropdown" href="#" className="dropdown-toggle"><img src={userimg} alt className="img-responsive img-circle" />&nbsp;<span className="hidden-xs">Robert John</span>&nbsp;<span className="caret" /></a>
+                <li className="dropdown topbar-user"><a data-hover="dropdown" href="#" className="dropdown-toggle"><img src={userimg} alt className="img-responsive img-circle" />&nbsp;<span className="hidden-xs">Robert John</span>&nbsp;</a>
                   <ul className="dropdown-menu dropdown-user pull-right">
                     <li><a href="#"><i className="fa fa-user" />My Profile</a></li>
                     <li><a href="#"><i className="fa fa-calendar" />My Calendar</a></li>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Topbar from './../components/higherPurchasePage/topbar'
+import Topbar from '../components/indexPage/topbar'
 import Sidebar from './../components/higherPurchasePage/sidebar'
 //import UserForm from './../components/higherPurchasePage/userForm'
 import './../../src/stylesheets/main.css'

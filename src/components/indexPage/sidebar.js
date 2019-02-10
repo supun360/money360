@@ -10,9 +10,9 @@ class Sidebar extends React.Component{
     <div className="sidebar-collapse menu-scroll bg-grey">
       <ul id="side-menu" className="nav">
         <div className="clearfix" />
-        <li><Link to="/"><i className="fa fa-tachometer fa-fw">
+        <li><Link to="/customer"><i className="fa fa-user fa-fw">
               <div className="icon-bg bg-orange" />
-            </i><span className="menu-title">Dashboard</span></Link></li>
+            </i><span className="menu-title">Customer</span></Link></li>
         <li><Link to="/fixed-deposits"><i className="fa fa-desktop fa-fw">
               <div className="icon-bg bg-orange" />
             </i><span className="menu-title">Fixed Deposits</span></Link>
@@ -21,7 +21,7 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">Gold Loans</span></Link>
         </li>
-        <li className="active"><Link to="/higherPurchase"><i className="fa fa-edit fa-fw">
+        <li><Link to="/higherPurchase"><i className="fa fa-edit fa-fw">
               <div className="icon-bg bg-violet" />
             </i><span className="menu-title">Higher Purchase</span></Link>
         </li>
@@ -59,12 +59,12 @@ class Sidebar extends React.Component{
     <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
       <div className="page-header pull-left">
         <div className="page-title">
-          Dashboard</div>
+          Money 360 - Welcome</div>
       </div>
       <ol className="breadcrumb page-breadcrumb pull-right">
         <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
         <li className="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="active">Dashboard</li>
+        {/* <li className="active">Dashboard</li> */}
       </ol>
       <div className="clearfix">
       </div>

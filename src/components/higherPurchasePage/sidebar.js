@@ -13,9 +13,9 @@ class Sidebar extends React.Component{
     <div className="sidebar-collapse menu-scroll bg-grey">
       <ul id="side-menu" className="nav">
         <div className="clearfix" />
-        <li><Link to="/"><i className="fa fa-tachometer fa-fw">
+        <li><Link to="/customer"><i className="fa fa-user fa-fw">
               <div className="icon-bg bg-orange" />
-            </i><span className="menu-title">Dashboard</span></Link></li>
+            </i><span className="menu-title">Customer</span></Link></li>
         <li><Link to="/fixed-deposits"><i className="fa fa-desktop fa-fw">
               <div className="icon-bg bg-orange" />
             </i><span className="menu-title">Fixed Deposits</span></Link>
@@ -28,21 +28,21 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-violet" />
             </i><span className="menu-title">Higher Purchase</span></Link> 
         </li>
-        <li><Link to="/gold-loans"><i className="fa fa-send-o fa-fw">
+        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
-            </i><span className="menu-title">Gold Loans</span></Link>
+            </i><span className="menu-title">&nbsp;&nbsp;Items</span></Link>
         </li>
-        <li><Link to="/gold-loans"><i className="fa fa-send-o fa-fw">
+        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
-            </i><span className="menu-title">Gold Loans</span></Link>
+            </i><span className="menu-title">&nbsp;&nbsp;Agreement</span></Link>
         </li>
-        <li><Link to="/gold-loans"><i className="fa fa-send-o fa-fw">
+        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
-            </i><span className="menu-title">Gold Loans</span></Link>
+            </i><span className="menu-title">&nbsp;&nbsp;Payments</span></Link>
         </li>
-        <li><Link to="/gold-loans"><i className="fa fa-send-o fa-fw">
+        <li><Link to="/gold-loans">&nbsp;&nbsp;<i className="fa fa-plus">
               <div className="icon-bg bg-green" />
-            </i><span className="menu-title">Gold Loans</span></Link>
+            </i><span className="menu-title">&nbsp;&nbsp;Reports</span></Link>
         </li>
         <li><Link to="/leasing"><i className="fa fa-th-list fa-fw">
               <div className="icon-bg bg-blue" />

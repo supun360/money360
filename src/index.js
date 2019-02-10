@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 //import './index.css';
 import App from './App';
-import Users from './views/users';
-import higherPurchase from './views/higherPurchase';
+import Customer from './views/Customer';
+import higherPurchase from './views/HigherPurchase';
 import * as serviceWorker from './serviceWorker';
 import NotFound from './views/NotFound';
 //import HigherPurchase from './components/views/higherPurchase';
@@ -25,7 +25,7 @@ const routing = (
       </ul> */}
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/users" component={Users} />
+        <Route path="/customer" component={Customer} />
         <Route path="/higherPurchase" component={higherPurchase} />
         <Route component={NotFound} />
       </Switch>
