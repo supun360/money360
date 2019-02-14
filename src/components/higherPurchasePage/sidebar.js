@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 import UserForm from './userForm';
-import './../../stylesheets/bootstrapreact/new.css'
+//import './../../stylesheets/bootstrapreact/new.css'
 
 class Sidebar extends React.Component{
     render() {
