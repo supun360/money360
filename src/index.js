@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 //import './index.css';
 import App from './App';
-import Agreement from './components/higherPurchasePage/Pages/agreement'
-import Items from './components/higherPurchasePage/Pages/items'
-import Payments from './components/higherPurchasePage/Pages/payments'
-import Reports from './components/higherPurchasePage/Pages/reports'
-import Customer from './views/Customer';
-import higherPurchase from './views/HigherPurchase';
+import Agreement from './renderer/components/higherPurchasePage/Pages/agreement'
+import Items from './renderer/components/higherPurchasePage/Pages/items'
+import Payments from './renderer/components/higherPurchasePage/Pages/payments'
+import Reports from './renderer/components/higherPurchasePage/Pages/reports'
+import Customer from './renderer/views/Customer';
+import higherPurchase from './renderer/views/HigherPurchase';
 import * as serviceWorker from './serviceWorker';
-import NotFound from './views/NotFound';
-import items from './components/higherPurchasePage/Pages/items';
+import NotFound from './renderer/views/NotFound';
+import items from './renderer/components/higherPurchasePage/Pages/items';
 //import HigherPurchase from './components/views/higherPurchase';
 
 const routing = (

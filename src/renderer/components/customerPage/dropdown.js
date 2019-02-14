@@ -1,5 +1,5 @@
 import React from 'react';
-import './../../stylesheets/style.css';
+import './../../assets/stylesheets/style.css';
 
 
 class Dropdown extends React.Component {

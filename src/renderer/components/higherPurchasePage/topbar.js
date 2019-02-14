@@ -1,17 +1,17 @@
 import React from 'react'
-import Dropdown from '../higherPurchasePage/dropdown'
+import Dropdown from './dropdown'
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
-import './../../stylesheets/main.css'
-import userimg from './../../images/avatar/48.jpg'
+import './../../assets/stylesheets/main.css'
+import userimg from './../../assets/images/avatar/48.jpg'
 //import './../../stylesheets/jquery-ui-1.10.4.custom.min.css'
-import './../../stylesheets/font-awesome.min.css'
-import './../../stylesheets/bootstrap.min.css'
-import './../../stylesheets/animate.css'
-import './../../stylesheets/all.css'
-import './../../stylesheets/style-responsive.css'
-import './../../stylesheets/zabuto_calendar.min.css'
-import './../../stylesheets/pace.css'
-import './../../stylesheets/jquery.news-ticker.css'
+import './../../assets/stylesheets/font-awesome.min.css'
+import './../../assets/stylesheets/bootstrap.min.css'
+import './../../assets/stylesheets/animate.css'
+import './../../assets/stylesheets/all.css'
+import './../../assets/stylesheets/style-responsive.css'
+import './../../assets/stylesheets/zabuto_calendar.min.css'
+import './../../assets/stylesheets/pace.css'
+import './../../assets/stylesheets/jquery.news-ticker.css'
 
 
 
@@ -24,7 +24,7 @@ class Topbar extends React.Component{
           <nav id="topbar" role="navigation" style={{marginBottom: 0}} data-step={3} className="navbar navbar-default navbar-static-top">
             <div className="navbar-header">
               <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" className="navbar-toggle"><span className="sr-only">Toggle navigation</span><span className="icon-bar" /><span className="icon-bar" /><span className="icon-bar" /></button>
-              <Link to="/"><a id="logo" className="navbar-brand"><span className="fa fa-rocket" /><span className="logo-text">Money 360</span><span style={{display: 'none'}} className="logo-text-icon">µ</span></a></Link></div>
+              <a id="logo" href="index.html" className="navbar-brand"><span className="fa fa-rocket" /><span className="logo-text">Money 360</span><span style={{display: 'none'}} className="logo-text-icon">µ</span></a></div>
             <div className="topbar-main"><a id="menu-toggle" href="#" className="hidden-xs"><i className="fa fa-bars" /></a>
               <ul className="nav navbar navbar-top-links navbar-right mbn">
                 <li className="dropdown"><a data-hover="dropdown" href="#" className="dropdown-toggle"><i className="fa fa-bell fa-fw" /><span className="badge badge-green">3</span></a>
