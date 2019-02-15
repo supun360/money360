@@ -1,6 +1,6 @@
 import React from 'react'
-import Topbar from '../components/indexPage/topbar'
-import Sidebar from './../components/higherPurchasePage/sidebar'
+import Topbar from './../components/topbar/index'
+import Sidebar from '../components/higherPurchasePage'
 import Content from './../components/higherPurchasePage/content'
 //import UserForm from './../components/higherPurchasePage/userForm'
 import './../assets/stylesheets/main.css'

@@ -1,18 +1,21 @@
 import React from 'react'
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 //import UserForm from './userForm';
-import Customertab from './../customerPage/Customer'
+import Topbar from './../../../topbar/index'
+import Reports from './reports'
+//import Customertab from './../customerPage/Customer'
 
-class Sidebar extends React.Component{
+class Index extends React.Component{
     render() {
         return <div>
+        <Topbar/>
 <div id="wrapper">
   {/*BEGIN SIDEBAR MENU*/}
   <nav id="sidebar" role="navigation" data-step={2} data-intro="Template has <b>many navigation styles</b>" data-position="right" className="navbar-default navbar-static-side">
     <div className="sidebar-collapse menu-scroll bg-grey">
       <ul id="side-menu" className="nav">
         <div className="clearfix" />
-        <li className="active"><Link to="/"><i className="fa fa-user fa-fw">
+        <li><Link to="/"><i className="fa fa-user fa-fw">
               <div className="icon-bg bg-orange" />
             </i><span className="menu-title">Customer</span></Link></li>
         <li><Link to="/fixed-deposits"><i className="fa fa-desktop fa-fw">
@@ -23,9 +26,25 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-green" />
             </i><span className="menu-title">Gold Loans</span></Link>
         </li>
-        <li><Link to="/higherPurchase"><i className="fa fa-edit fa-fw">
+        <li className="active"><Link to="/higherPurchase"><i className="fa fa-edit fa-fw">
               <div className="icon-bg bg-violet" />
             </i><span className="menu-title">Higher Purchase</span></Link>
+        </li>
+        <li><Link to="/higherPurchase/items">&nbsp;&nbsp;<i className="fa fa-plus">
+              <div className="icon-bg bg-green" />
+            </i><span className="menu-title">&nbsp;&nbsp;Items</span></Link>
+        </li>
+        <li><Link to="/higherPurchase/agreement">&nbsp;&nbsp;<i className="fa fa-plus">
+              <div className="icon-bg bg-green" />
+            </i><span className="menu-title">&nbsp;&nbsp;Agreement</span></Link>
+        </li>
+        <li><Link to="/higherPurchase/payments">&nbsp;&nbsp;<i className="fa fa-plus">
+              <div className="icon-bg bg-green" />
+            </i><span className="menu-title">&nbsp;&nbsp;Payments</span></Link>
+        </li>
+        <li className="active1"><Link to="/higherPurchase/reports">&nbsp;&nbsp;<i className="fa fa-plus">
+              <div className="icon-bg bg-green" />
+            </i><span className="menu-title">&nbsp;&nbsp;Reports</span></Link>
         </li>
         <li><Link to="/leasing"><i className="fa fa-th-list fa-fw">
               <div className="icon-bg bg-blue" />
@@ -58,23 +77,10 @@ class Sidebar extends React.Component{
   {/*BEGIN CHAT FORM*/}
   <div id="page-wrapper">
     {/*BEGIN TITLE & BREADCRUMB PAGE*/}
-    <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
-      <div className="page-header pull-left">
-        <div className="page-title">
-          Customer</div>
-      </div>
-      <ol className="breadcrumb page-breadcrumb pull-right">
-        <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="hidden"><a href="#">Customer</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="active">Customer</li>
-      </ol>
-      <div className="clearfix">
-      </div>
-    </div>
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div>
-      <Customertab/>
+      <Reports/>
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}
@@ -87,4 +93,4 @@ class Sidebar extends React.Component{
       }
 }
 
-export default Sidebar
+export default Index

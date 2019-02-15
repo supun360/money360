@@ -1,8 +1,8 @@
-import react from 'react';import React from 'react'
-import Topbar from './../topbar'
-import Sidebar from './../sidebar'
+import React from 'react'
+import Topbar from './../../../topbar/index'
+import Sidebar from './sidebar'
 
-class reports extends React.Component {
+class agreement extends React.Component {
     render() {
       return (
         <div>
@@ -14,7 +14,7 @@ class reports extends React.Component {
     <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
       <div className="page-header pull-left">
         <div className="page-title">
-          Higher Purchase - Reports</div>
+          Higher Purchase - Agreement</div>
       </div>
       <ol className="breadcrumb page-breadcrumb pull-right">
         <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
@@ -27,6 +27,7 @@ class reports extends React.Component {
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div className="page-content">
+      
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}
@@ -37,4 +38,4 @@ class reports extends React.Component {
     }
   }
   
-  export default reports
+  export default agreement

@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
-//import './index.css';
 import App from './App';
-import Agreement from './renderer/components/higherPurchasePage/Pages/agreement'
-import Items from './renderer/components/higherPurchasePage/Pages/items'
-import Payments from './renderer/components/higherPurchasePage/Pages/payments'
-import Reports from './renderer/components/higherPurchasePage/Pages/reports'
-import Customer from './renderer/views/Customer';
-import higherPurchase from './renderer/views/HigherPurchase';
+import Agreement from './renderer/components/higherPurchasePage/Pages/agreement/index'
+import Items from './renderer/components/higherPurchasePage/Pages/items/index'
+import Payments from './renderer/components/higherPurchasePage/Pages/payments/index'
+import Reports from './renderer/components/higherPurchasePage/Pages/reports/index'
+import Customer from './renderer/components/customerPage/index';
+import higherPurchase from './renderer/components/higherPurchasePage/index';
 import * as serviceWorker from './serviceWorker';
 import NotFound from './renderer/views/NotFound';
-import items from './renderer/components/higherPurchasePage/Pages/items';
+//i//mport items from './renderer/components/higherPurchasePage/Pages/items';
 //import HigherPurchase from './components/views/higherPurchase';
 
 const routing = (

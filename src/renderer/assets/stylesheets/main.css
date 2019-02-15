@@ -1002,6 +1002,14 @@ hr {
   color: #FFF;
 }
 
+.navbar-static-side ul li.active1 a {
+  background: #78a9d6;
+  /* Old browsers */
+  transition: 0.2s all ease-in-out;
+  outline: none;
+  color: #FFF;
+}
+
 .navbar-static-side ul li a {
   color: #d9d9d9;
   padding: 15px;

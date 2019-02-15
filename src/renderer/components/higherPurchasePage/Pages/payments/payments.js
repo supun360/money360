@@ -1,15 +1,12 @@
 import React from 'react'
-import Topbar from './../topbar'
-import Sidebar from './../sidebar'
+//import Topbar from './../../../topbar/index'
+//import Sidebar from './sidebar'
 
 class payments extends React.Component {
     render() {
       return (
-        <div>
-          <Topbar/>
-          <Sidebar/>
+       
           <div>
-          <div id="page-wrapper">
     {/*BEGIN TITLE & BREADCRUMB PAGE*/}
     <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
       <div className="page-header pull-left">
@@ -32,8 +29,7 @@ class payments extends React.Component {
     {/*END CONTENT*/}
     {/*END FOOTER*/}
   </div>
-        </div>
-        </div>
+        
       )
     }
   }
