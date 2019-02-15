@@ -3,6 +3,7 @@ import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 //import UserForm from './userForm';
 //import Customertab from './../customerPage/Customer'
 import Topbar from './../../../topbar/index'
+import Agreement from './agreement'
 class Index extends React.Component{
     render() {
         return <div>
@@ -75,23 +76,11 @@ class Index extends React.Component{
   {/*BEGIN CHAT FORM*/}
   <div id="page-wrapper">
     {/*BEGIN TITLE & BREADCRUMB PAGE*/}
-    <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
-      <div className="page-header pull-left">
-        <div className="page-title">
-          Customer</div>
-      </div>
-      <ol className="breadcrumb page-breadcrumb pull-right">
-        <li><i className="fa fa-home" />&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="hidden"><a href="#">Customer</a>&nbsp;&nbsp;<i className="fa fa-angle-right" />&nbsp;&nbsp;</li>
-        <li className="active">Customer</li>
-      </ol>
-      <div className="clearfix">
-      </div>
-    </div>
+    
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div>
-      {/* //<Customertab/> */}
+      <Agreement/>
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}
