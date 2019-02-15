@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
+import Login from './renderer/components/loginPage/Login'
 import Agreement from './renderer/components/higherPurchasePage/Pages/agreement/index'
 import Items from './renderer/components/higherPurchasePage/Pages/items/index'
 import Payments from './renderer/components/higherPurchasePage/Pages/payments/index'
@@ -28,7 +29,7 @@ const routing = (
         </li>
       </ul> */}
       <Switch>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Login} />
         <Route exact path="/customer" component={Customer} />
         <Route exact path="/higherPurchase" component={higherPurchase} />
         <Route exact path="/higherPurchase/items" component={Items}/>
