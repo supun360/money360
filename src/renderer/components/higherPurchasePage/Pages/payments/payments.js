@@ -1,4 +1,5 @@
 import React from 'react'
+import View from './view'
 //import Topbar from './../../../topbar/index'
 //import Sidebar from './sidebar'
 
@@ -24,7 +25,7 @@ class payments extends React.Component {
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div className="page-content">
-      
+      <View/>
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}

@@ -1,5 +1,5 @@
 import React from 'react'
-
+//import 
 class agreement extends React.Component {
     render() {
       return (

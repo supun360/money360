@@ -31,11 +31,11 @@ showDropdownMenu(event) {
 
   render() {
     return (
-        <div  className="dropdown" style = {{background:"black",width:"200px"}} >
-         <div className="button" onClick={this.showDropdownMenu}> My Setting </div>
+        <div  className="dropdown topbar-user" style = {{background:"black",width:"200px"}} >
+         <div className="dropdown-toggle" onClick={this.showDropdownMenu}> My Setting </div>
 
           { this.state.displayMenu ? (
-          <ul>
+          <ul className="dropdown-menu dropdown-user pull-right">
          <li><a className="active" href="#Create Page">Create Page</a></li>
          <li><a href="#Manage Pages">Manage Pages</a></li>
          <li><a href="#Create Ads">Create Ads</a></li>

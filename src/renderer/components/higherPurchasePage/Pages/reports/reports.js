@@ -1,5 +1,5 @@
 import react from 'react';import React from 'react'
-
+import View from './view'
 
 class reports extends React.Component {
     render() {
@@ -22,6 +22,7 @@ class reports extends React.Component {
     {/*END TITLE & BREADCRUMB PAGE*/}
     {/*BEGIN CONTENT*/}
     <div className="page-content">
+    <View/>
     </div>
     {/*END CONTENT*/}
     {/*END FOOTER*/}

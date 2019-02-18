@@ -175,7 +175,7 @@ hr {
 #topbar .navbar-header {
   width: 250px;
   height: 100%;
-  background: #1E1E1E;
+  background: #3e6e4c;
   text-align: center;
 }
 
@@ -201,7 +201,7 @@ hr {
 #topbar .topbar-main {
   display: block;
   height: 100%;
-  background: #1E1E1E;
+  background: #3e6e4c;
 }
 
 #topbar .topbar-main #menu-toggle {
@@ -995,7 +995,7 @@ hr {
 }
 
 .navbar-static-side ul li.active a {
-  background: #3e77ab;
+  background: #169e77;
   /* Old browsers */
   transition: 0.2s all ease-in-out;
   outline: none;
@@ -1003,7 +1003,7 @@ hr {
 }
 
 .navbar-static-side ul li.active1 a {
-  background: #78a9d6;
+  background: #3a8e76;
   /* Old browsers */
   transition: 0.2s all ease-in-out;
   outline: none;
@@ -5199,21 +5199,21 @@ a.list-group-item.active>.badge,
 }
 
 .panel.panel-blue {
-  background: #f2f5f6;
+  background: #0ed49b;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #f2f5f6 0%, #c8d7dc 100%);
+  background: -moz-linear-gradient(top, #0ed49b 0%, #c8d7dc 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f5f6), color-stop(100%, #c8d7dc));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0ed49b), color-stop(100%, #c8d7dc));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f2f5f6 0%, #c8d7dc 100%);
+  background: -webkit-linear-gradient(top, #0ed49b 0%, #c8d7dc 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f2f5f6 0%, #c8d7dc 100%);
+  background: -o-linear-gradient(top, #0ed49b 0%, #c8d7dc 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f2f5f6 0%, #c8d7dc 100%);
+  background: -ms-linear-gradient(top, #0ed49b 0%, #c8d7dc 100%);
   /* IE10+ */
-  background: linear-gradient(to bottom, #f2f5f6 0%, #c8d7dc 100%);
+  background: linear-gradient(to bottom, #0ed49b 0%, #c8d7dc 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f5f6', endColorstr='#c8d7dc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0ed49b', endColorstr='#c8d7dc', GradientType=0);
   /* IE6-9 */
 
   border-color: #d8d8d8;
@@ -6023,7 +6023,7 @@ fieldset[disabled] .btn-grey.active {
 .btn-dark.active,
 .open .dropdown-toggle.btn-dark {
   color: #ffffff;
-  background-color: #423641;
+  background-color: #bd5cb5;
   border-color: #322830;
 }
 

@@ -14,7 +14,7 @@ class Index extends React.Component{
     <div className="sidebar-collapse menu-scroll bg-grey">
       <ul id="side-menu" className="nav">
         <div className="clearfix" />
-        <li><Link to="/"><i className="fa fa-user fa-fw">
+        <li><Link to="/customer"><i className="fa fa-user fa-fw">
               <div className="icon-bg bg-orange" />
             </i><span className="menu-title">Customer</span></Link></li>
         <li><Link to="/fixed-deposits"><i className="fa fa-desktop fa-fw">
