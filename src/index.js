@@ -7,7 +7,7 @@ import Agreement from './renderer/components/higherPurchasePage/Pages/agreement/
 import Items from './renderer/components/higherPurchasePage/Pages/items/index'
 import Payments from './renderer/components/higherPurchasePage/Pages/payments/index'
 import Reports from './renderer/components/higherPurchasePage/Pages/reports/index'
-import Customer from './renderer/components/customerPage/index';
+import Customer from './renderer/components/customerPage/Index';
 import higherPurchase from './renderer/components/higherPurchasePage/index';
 import * as serviceWorker from './serviceWorker';
 import NotFound from './renderer/views/NotFound';

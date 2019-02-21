@@ -1,74 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import $ from 'jquery'
-import axios from 'axios'
 
 class Body extends Component {
-
-    constructor(prop){
-        super(prop);
-        this.state = {
-            customer: []
-          }
-    }
-
-    searchData(e){
-        e.preventDefault();
-        const nic = $('#inputName').val();
-        if(nic.length >= 10){
-            axios.post('http://localhost:8080/search', {
-            nic: nic
-          })
-          .then((response) => {
-                if(response.data.data.length === 1){
-                    this.setState({ customer: response.data.data});
-                    $('#status').css('display','block');
-                    $('#rate').css('display','block');
-                    $('#date').text("02/01/2019");    
-                    setTimeout(function() {
-                        $('#smsg').html("<strong>Sucessfull!</strong> Data is found.");
-                        $('#Smsg').css('display','block');
-                    }.bind(this),
-                    10);
-                    setTimeout(function() {
-                        $('#smsg').html("<strong>Sucessfull!</strong> Data is found.");
-                        $('#Smsg').css('display','none');
-                    }.bind(this),
-                    4000);
-                }else{
-                    $('#customerForm').show();
-                    $('#full_form2').hide();
-                    $('#cusBack').css('display','block');
-                    setTimeout(function() {
-                        $('#fmsg').html("<strong>Fail!</strong> Data is not found.");
-                        $('#Dmsg').css('display','block');
-                    }.bind(this),
-                    10);
-                    setTimeout(function() {
-                        $('#fmsg').html("<strong>Fail!</strong> Data is not found.");
-                        $('#Dmsg').css('display','none');
-                    }.bind(this),
-                    4000);
-                }
-            
-              
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-        }else{
-            setTimeout(function() {
-                $('#fmsg').html("<strong>Fail!</strong> Enter correct NIC/Passport No.");
-                $('#Dmsg').css('display','block');
-            }.bind(this),
-            10);
-            setTimeout(function() {
-                $('#fmsg').html("<strong>Fail!</strong> Enter correct NIC/Passport No.");
-                $('#Dmsg').css('display','none');
-            }.bind(this),
-            4000);
-        }
-    }
     
     goCus(){
         window.location = 'customer.html';
@@ -86,6 +20,38 @@ class Body extends Component {
         $('#cusBack').css('display','none');
     }
 
+    buttonClicked() {
+        var searchText = document.getElementById("inputName").value;
+        if (searchText !== '952290975V') {
+            $('#customerForm').show();
+            $('#cusBack').css('display','block');
+            
+            setTimeout(function() {
+                $('#anim').css('display','block');
+            }, 10);
+
+            setTimeout(function() {
+                $('#anim').css('display','none');
+            }, 2000);
+        }else{
+            $('#full_form2').show();
+            $('#customerForm').hide();
+            
+            $('#profile').text("Profile: Lasith Madushanka");
+            $('#username').text("Lasith Madushanka");
+            $('#email').text("lasith@i-threesixty.com");
+            $('#address').text("220/1/C, Pahala Imbulgoda, Imbulgoda");
+            $('#status').css('display','block');
+            $('#rate').css('display','block');
+            $('#date').text("02/01/2019");
+            setTimeout(function() {
+                $('#suce').css('display','block');
+            }, 10);
+            setTimeout(function() {
+                $('#suce').css('display','none');
+            }, 2000);
+        }
+    }
 
     closeCus(){
         $('#profile').text("");
@@ -100,30 +66,6 @@ class Body extends Component {
     }
 
     render() {
-        var cusFName = this.state.customer.map(function(item){
-            return item.cusFName;
-          });
-          var cusLName = this.state.customer.map(function(item){
-            return item.cusLName;
-          });
-          var cusAddress = this.state.customer.map(function(item){
-            return item.cusAddress;
-          });
-          var cusTel = this.state.customer.map(function(item){
-            return item.cusTel;
-          });
-          var cusCountry = this.state.customer.map(function(item){
-            return item.cusCountry;
-          });
-          var cusCity = this.state.customer.map(function(item){
-            return item.cusCity;
-          });
-          var cusPostalCode = this.state.customer.map(function(item){
-            return item.cusPostalCode;
-          });
-          var cusEmail = this.state.customer.map(function(item){
-            return item.cusEmail;
-          });
         return (
             <div className='Body'>
                 <div id="page-wrapper">
@@ -131,23 +73,16 @@ class Body extends Component {
         <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
             <div className="page-header pull-left">
                 <div className="page-title">
-                    Dashboard</div>
+                    Customer</div>
             </div>
             <ol className="breadcrumb page-breadcrumb pull-right">
                 <li><i className="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i className="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                <li className="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i className="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                <li className="active">Dashboard</li>
+                <li className="hidden"><a href="#">Customer</a>&nbsp;&nbsp;<i className="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                <li className="active">Customer</li>
             </ol>
             <div className="clearfix">
             </div>
         </div>
-
-        <div className="row col-md-3" id="Smsg" style={{position: "absolute", zIndex: 999, left: 'calc(100% - 24%)', display: 'none'}} >
-                        <div data-toggle="dropdown" id="smsg" data-value="bounceInRight" className="alert alert-success"></div>
-                    </div>
-                    <div className="row col-md-3" id="Dmsg" style={{position: "absolute", zIndex: 999, left: 'calc(100% - 24%)', display: 'none'}}>
-                        <div data-toggle="dropdown" id="fmsg" data-value="bounceInRight" className="alert alert-danger"></div>
-                    </div>
 
         <div className="page-content">
             
@@ -160,7 +95,7 @@ class Body extends Component {
                             <div className="input-icon">
                                 <i className="fa fa-user"></i>
                                     <input id="inputName" type="text" placeholder="Search by name" className="form-control" style={{display: 'inline-block', width: '70%' }}/>
-                                    <a href="#" className="btn btn-primary" id="searchBtn" style={{display: 'inline-block'}} onClick={this.searchData.bind(this)}>Search</a>
+                                    <a href="#" className="btn btn-primary" id="searchBtn" style={{display: 'inline-block'}} onClick={this.buttonClicked}>Search</a>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +106,7 @@ class Body extends Component {
                     <div className="panel-grey popup">
                             <h3 id="qes">Do you want to create a new Account?</h3>
                         <div className="form-group mbn btnYN" id="buttonGroup">
-                                <a href="#" className="btn btn-primary" id="butn" onClick={()=>this.props.hideCom()}>Yes</a>&nbsp;&nbsp;
+                                <a href="#" className="btn btn-primary" id="butn" onClick={this.goCus}>Yes</a>&nbsp;&nbsp;
                                 <button type="submit" className="btn btn-primary" id="butn" onClick={this.closeCus}>
                                         No</button>
                     </div>
@@ -202,15 +137,15 @@ class Body extends Component {
                             <tbody>
                             <tr>
                                 <td>User Name</td>
-                                <td id="username">{cusFName+" "+cusLName}</td>
+                                <td id="username"></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td id="email">{cusEmail}</td>
+                                <td id="email"></td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td id="address">{cusAddress}</td>
+                                <td id="address"></td>
                             </tr>
                             <tr>
                                 <td>Status</td>
@@ -381,13 +316,13 @@ class Body extends Component {
         </div>
 
         </div>
-        <script src="./../../script/main.js"></script>
-        <script src="./../../script/other.js"></script>
+        <script src="../src/script/main.js"></script>
+        <script src="../src/script/other.js"></script>
     </div>
         );
     }
 }
 
 export default Body;
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<Body />, rootElement);
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Body />, rootElement);
