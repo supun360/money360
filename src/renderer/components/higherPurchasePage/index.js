@@ -3,9 +3,13 @@ import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Content from './content';
 import Topbar from './../topbar/index';
+import $ from 'jquery'
+import axios from 'axios'
 //import './../../stylesheets/bootstrapreact/new.css'
 
 class Sidebar extends React.Component{
+
+
     render() {
         return <div>
         <Topbar/>
@@ -75,6 +79,7 @@ class Sidebar extends React.Component{
   </nav>
   {/*END SIDEBAR MENU*/}
   {/*BEGIN CHAT FORM*/}
+  
   <Content/>
   {/*END PAGE WRAPPER*/}
 </div>

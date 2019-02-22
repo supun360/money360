@@ -335,7 +335,7 @@ class Customer extends Component {
                         <div data-toggle="dropdown" id="fmsg" data-value="bounceInRight" className="alert alert-danger"></div>
                     </div>
                 <Tabs>
-                <div className="page-content" style={{width: '80%', marginleft: 'calc(100% - 90%)'}}>
+                <div className="page-content" style={{width: '100%', marginleft: 'calc(100% - 90%)'}}>
                     <div className="col-md-12">
                 <ul className="nav nav-tabs">
                 <TabList>

@@ -4,9 +4,26 @@ import Dropdown from 'react-bootstrap/Dropdown';
 //import Content from './content';
 import Topbar from './../topbar/index';
 import Content from './Body';
+import Customer from './Customer';
 //import './../../stylesheets/bootstrapreact/new.css'
 
 class Sidebar extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      show: true,
+      hide: false
+    }
+  }
+
+  hideCom(){
+    this.setState({
+      show: false,
+      hide: true
+    })
+  }
+
+
     render() {
         return <div>
         <Topbar/>
@@ -60,7 +77,16 @@ class Sidebar extends React.Component{
   </nav>
   {/*END SIDEBAR MENU*/}
   {/*BEGIN CHAT FORM*/}
-  <Content/>
+  {
+                this.state.show?
+                <Content hideCom={this.hideCom.bind(this)}/>
+                :null
+              }
+              {
+                this.state.hide?
+                <Customer/>
+                :null
+              }     
   {/*END PAGE WRAPPER*/}
 </div>
 

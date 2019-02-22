@@ -1737,13 +1737,13 @@ textarea.input-lg, select[multiple].input-lg {
 }
 .btn-primary {
 	color: #fff;
-	background-color: #428bca;
-	border-color: #357ebd
+	background-color: #0b6621;
+	border-color: #15722c
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
 	color: #fff;
-	background-color: #3276b1;
-	border-color: #285e8e
+	background-color: #1b8f38;
+	border-color: #34ca5a
 }
 .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
 	background-image: none
@@ -4296,7 +4296,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 	background-color: #f2dede;
 	border-color: #ebccd1
 }
-.panel-danger>.panel-heading+.panel-collapse .panel-body {
+.panel-danger>l l+.panel-collapse .panel-body {
 	border-top-color: #ebccd1
 }
 .panel-danger>.panel-footer+.panel-collapse .panel-body {

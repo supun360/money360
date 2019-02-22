@@ -7,10 +7,23 @@ class Body extends Component {
 
     constructor(prop){
         super(prop);
+        $('#customerForm').hide();
         this.state = {
-            customer: []
+            customer: [],
+            show: false,
+            hide: true
           }
+        //   this.closeCus();
+          
+        //$('#cusBack').hide();
     }
+
+    hideCom(){
+        this.setState({
+          show: false,
+          hide: true
+        })
+      } 0
 
     searchData(e){
         e.preventDefault();
@@ -36,6 +49,8 @@ class Body extends Component {
                     }.bind(this),
                     4000);
                 }else{
+                    $('#customerForm').css('display', 'block')
+                    $('#cusBack').css('display', 'block')
                     $('#customerForm').show();
                     $('#full_form2').hide();
                     $('#cusBack').css('display','block');
@@ -81,6 +96,7 @@ class Body extends Component {
     }
     
     customeForm(){
+        console.log("Hit")
         $('#customerForm').hide();
         $('#full_form2').show();
         $('#cusBack').css('display','none');
@@ -125,7 +141,7 @@ class Body extends Component {
             return item.cusEmail;
           });
         return (
-            <div className='Body'>
+            <div className='Body' onLoad={this.closeCus}>
                 <div id="page-wrapper">
 
         <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
@@ -166,8 +182,10 @@ class Body extends Component {
                         </div>
                     </div>
                 </form>
-            <div id="cusBack">
-                <div id="customerForm" style={{width: '350px', marginLeft: 'calc(50% - 5%)', marginTop: "calc(50% - 40%)", zIndex: 999}}>
+     
+                
+            <div id="cusBack" style={{'display': 'none'} }>
+                <div id="customerForm" style={{width: '350px', marginLeft: 'calc(50% - 5%)', marginTop: "calc(50% - 40%)", zIndex: 999, display: 'none'}}>
                     <div className="panel-grey popup">
                             <h3 id="qes">Do you want to create a new Account?</h3>
                         <div className="form-group mbn btnYN" id="buttonGroup">
