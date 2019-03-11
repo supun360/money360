@@ -9,14 +9,32 @@ import { Form, Button, Row, Col} from "react-bootstrap"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import axios from 'axios'
+import uuidv1 from 'uuid/v1'
 
 class items extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: 'React + Node',
-      countries: []
+      vehicles: []
     }
+  }
+
+  componentDidMount(){
+    console.log('COMPONENT HAS MOUNTED');
+    var that = this;
+    fetch('http://localhost:8080/api/getVehicles')
+      .then(function(response){
+        response.json()
+         .then(function(data){
+           console.log('response')
+           that.setState({
+             vehicles: data
+           })
+           console.log('1234',data);
+         })
+      })
+      
   }
 
   
@@ -91,27 +109,26 @@ class items extends React.Component {
 
 saveData(e){
     e.preventDefault();
-    const firstName = $('#inputFirstName').val();
-    const lastName = $('#inputLastName').val();
-    const email = $('#inputEmail').val();
-    const phone = $('#inputPhone').val();
-    const country = $('#country').val();
-    const city = $('#inputCity').val();
-    const postal = $('#inputPostCode').val();
-    const address = $('#inputAddress').val();
-    const nic = $('#inputNic').val();
+    const vehicle_no = $('#inputVehicle').val();
+    const chassis_no = $('#inputChassi').val();
+    const engine_no = $('#engineNumber').val();
+    const model = $('#vehicleModel').val();
+    const make = $('#vehicleMadeYear').val();
+    const color = $('#vehicleColor').val();
+    const vehicle_image = $('#carImage').val();
+    const customer_id = uuidv1;
+    //const nic = $('#inputNic').val();
 
-    if(firstName.length != 0 && lastName.length != 0 && email.length != 0 && phone.length != 0 && country.length != 0 && city.length != 0 && postal.length != 0 && address.length != 0 && nic.length != 0){
-    axios.post('http://localhost:8080/add', {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: phone,
-        country: country,
-        city: city,
-        nic: nic,
-        postal: postal,
-        address: address
+    if(vehicle_no.length != 0 && chassis_no.length != 0 && engine_no.length != 0 && model.length != 0 && make.length != 0 && color.length != 0 && customer_id.length != 0){
+    axios.post('http://localhost:8080/api/add-vehicles', {
+        vehicle_no: vehicle_no,
+        chassis_no: chassis_no,
+        engine_no: engine_no,
+        model: model,
+        make: make,
+        color: color,
+        vehicle_image: vehicle_image,
+        customer_id: customer_id,
       })
       .then(function (response) {
           if(response.data.msg === true){
@@ -166,7 +183,6 @@ saveData(e){
         }.bind(this),
         4000);
     }
-
 }
 
 deleteData(e){
@@ -350,7 +366,9 @@ searchDataForDelete(e){
 
 
   render() {
+    let vehicles = this.state.vehicles;
     return (
+
           <div>
             {/*BEGIN TITLE & BREADCRUMB PAGE*/}
             <div id="title-breadcrumb-option-demo" className="page-title-breadcrumb">
@@ -400,14 +418,14 @@ searchDataForDelete(e){
                                                         <div className="form-group">
                                                             <div className="input-icon">
                                                                 <i className="fa fa-car"></i>
-                                                                <input id="inputVehicle" type="text" placeholder="Vehicle Number" className="form-control" /></div>
+                                                                <input id="inputVehicle" type="text" ref="vehicle_no" placeholder="Vehicle Number" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-plus"></i>
-                                                                    <input id="inputChassi" type="text" placeholder="Vehicle Chassi Number" className="form-control" /></div>
+                                                                    <input id="inputChassi" type="text" ref="chassis_no" placeholder="Vehicle Chassi Number" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -416,14 +434,14 @@ searchDataForDelete(e){
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-circle"></i>
-                                                                    <input id="engineNumber" type="text" placeholder="Engine Number" className="form-control" /></div>
+                                                                    <input id="engineNumber" type="text" ref="engine_no" placeholder="Engine Number" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-plus"></i>
-                                                                    <input id="vehicleModel" type="text" placeholder="Vehicle Model" className="form-control" /></div>
+                                                                    <input id="vehicleModel" type="text" ref="model" placeholder="Vehicle Model" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -432,21 +450,21 @@ searchDataForDelete(e){
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-plus"></i>
-                                                                    <input id="vehicleMadeYear" type="text" placeholder="Vehicle Made Year" className="form-control" /></div>
+                                                                    <input id="vehicleMadeYear" type="text" ref="make" placeholder="Vehicle Made Year" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-plus"></i>
-                                                                    <input id="vehicleColor" type="text" placeholder="Vehicle Color" className="form-control" /></div>
+                                                                    <input id="vehicleColor" type="text" ref="color" placeholder="Vehicle Color" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <hr />
                                                     <div className="row">
                                                         <div className="col-md-4">
-                                                            <input id="carImage" type="file" placeholder="Vehicle Image" className="form-control" />
+                                                            <input id="carImage" type="file" ref="vehicle_image" placeholder="Vehicle Image" className="form-control" />
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -477,7 +495,39 @@ searchDataForDelete(e){
                   <TabPanel>
                     <p>Vehicle - View</p>
                     <div className="page-content">
-      
+                    
+            <div className="panel panel-default p30 uth-panel">
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Vehicle No</th>
+                            <th>Chassis No</th>
+                            <th>Engine No</th>
+                            <th>Model</th>
+                            <th>Make</th>
+                            <th>Colour</th>
+                            <th>Vehicle Image</th>
+                            <th>Customer ID</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {vehicles.map(vehicle =><tr key={vehicle.customer_id}>
+                        <td>{vehicle.vehicle_no}</td>
+                        <td>{vehicle.chassis_no}</td>
+                        <td>{vehicle.engine_no}</td>
+                        <td>{vehicle.model}</td>
+                        <td>{vehicle.make}</td>
+                        <td>{vehicle.color}</td>
+                        <td>{vehicle.vehicle_image}</td>
+                        <td>{vehicle.customer_id}</td>
+                        <td><button onClick={this.update.bind(this, vehicle.customer_id)}>Edit</button>|<button onClick={this.removeCountry.bind(this, vehicle.customer_id)}>Remove</button></td>
+                    </tr>
+                    
+                    )}
+                    </tbody>
+                  </table>
+                </div>
                     </div>
                   </TabPanel>
                   </div>

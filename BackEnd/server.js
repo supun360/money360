@@ -130,6 +130,110 @@ app.post('/update', (req, res)=>{
     })
 })
 
+app.delete('/api/remove/:customer_id', function(request, response) {
+    var customer_id = request.params.customer_id;
+    pool.connect(function(err, db, done){
+        if(err) {
+            console.log(err);
+            return response.status(400).send(err)
+        }else{
+            db.query('DELETE FROM vehicles WHERE customer_id = $1', [String(customer_id)], function(err, result){
+                done();
+                if(err){
+                    console.log(err);
+                    return response.status(400).send(err)
+                }
+                else{
+                    return response.status(201).send({ message: 'success in delete records' });
+                }
+            })
+        }
+    })
+})
+
+app.get('/api/edit/:customer_id', function(request, response) {
+    var customer_id = request.params.customer_id;
+    pool.connect(function(err, db){
+        if (err) {
+            return response.status(400).send(err);
+        } else {
+            db.query("SELECT * FROM vehicles WHERE customer_id = ?", [String(customer_id)], function (err, rows) {
+                if (err) throw err;
+                response.render('edit', { vehicledata: rows });
+            });
+        }
+    })
+});
+
+app.post('/update/:customer_id', function(request, response) {
+    
+    var vehicle_no = request.body.vehicle_no;
+    var chassis_no = request.body.chassis_no;
+    var engine_no = request.body.engine_no;
+    var model = request.body.model;
+    var make = request.body.make;
+    var color = request.body.color;
+    var vehicle_img = request.body.vehicle_img;
+
+    var updatecustomer_id = request.body.customer_id;
+
+    db.query("UPDATE vehicles SET vehicle_no=?, chassis_no=?, engine_no=?, model=?, make=?, color=?, vehicle_img=? WHERE customer_id=?",
+        [vehicle_no, chassis_no, engine_no, model, make, color, vehicle_img, updatecustomer_id], function (err, respond) {
+            if (err) throw err;
+            response.redirect('../../')
+        });
+
+});
+
+app.get('/api/getVehicles', function(request, response){
+    pool.connect(function(err, db, done){
+        if (err) {
+            return response.status(400).send(err);
+        }else{
+            db.query('SELECT * FROM vehicles', function(err, table){
+                done();
+                if (err) {
+                    return response.status(400).send(err);
+                } else {
+                    //console.log('DATA INSERTED');
+                    db.end();
+                    response.status(201).send(table.rows);
+                }
+            })
+        }
+    })
+});
+
+
+app.post('/api/add-vehicles', function(request, response){
+    var vehicle_no = request.body.vehicle_no;
+    var chassis_no = request.body.chassis_no;
+    var engine_no = request.body.engine_no;
+    var model = request.body.model;
+    var make = request.body.make;
+    var color = request.body.color;
+    var vehicle_image = request.body.vehicle_image;
+    var customer_id = request.body.customer_id;
+    let values = [vehicle_no, chassis_no, engine_no, model, make, color, vehicle_image, customer_id];
+    pool.connect((err, db, done) => {
+        if (err) {
+            return response.status(400).send(err);
+        }
+        else {
+            db.query('INSERT INTO vehicles (vehicle_no, chassis_no, engine_no, model, make, color, vehicle_image, customer_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [...values], (err, table) => {
+                done();
+                if (err) {
+                    return response.status(400).send(err);
+                } else {
+                    console.log('DATA INSERTED');
+                    response.status(201).send({message: 'Data Inserted!'});
+                }
+            })
+        }
+    })
+});
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: true}));
 
