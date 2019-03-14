@@ -68,12 +68,37 @@ app.post('/search', (req, res) => {
                     }
                 });
             }catch(Ex){
-
+                
             }
                 
         }
     })
 })
+
+
+app.post('/api/getVehicles', function(request, res){
+    pool.connect(function(err, db, done){
+        if (err) {
+            return response.status(400).send(err);
+        }else{
+            try{
+                db.query('SELECT * FROM public."vehicles"', function(err, table){
+                    done();
+                    if (err) {
+                        res.json({status: false, data: err})
+                        //return response.status(400).send(err);
+                    } else {
+                        res.json({status: true, data: table.rows})
+                    }
+                })
+            }
+            catch(Ex){
+
+            }
+            
+        }
+    })
+});
 
 app.post('/delete', (req, res) => {
     const nic = req.body.nic;
@@ -185,24 +210,7 @@ app.post('/update/:customer_id', function(request, response) {
 
 });
 
-app.get('/api/getVehicles', function(request, response){
-    pool.connect(function(err, db, done){
-        if (err) {
-            return response.status(400).send(err);
-        }else{
-            db.query('SELECT * FROM vehicles', function(err, table){
-                done();
-                if (err) {
-                    return response.status(400).send(err);
-                } else {
-                    //console.log('DATA INSERTED');
-                    db.end();
-                    response.status(201).send(table.rows);
-                }
-            })
-        }
-    })
-});
+
 
 
 app.post('/api/add-vehicles', function(request, response){
@@ -223,6 +231,7 @@ app.post('/api/add-vehicles', function(request, response){
             db.query('INSERT INTO vehicles (vehicle_no, chassis_no, engine_no, model, make, color, vehicle_image, customer_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [...values], (err, table) => {
                 done();
                 if (err) {
+                    console.log("Not")
                     return response.status(400).send(err);
                 } else {
                     console.log('DATA INSERTED');

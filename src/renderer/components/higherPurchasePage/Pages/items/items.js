@@ -21,15 +21,24 @@ class items extends React.Component {
   }
 
   componentDidMount(){
-    console.log('COMPONENT HAS MOUNTED');
+    console.log('COMPONENT HS MOUNTED');
     //var that = this;
     axios.post('http://localhost:8080/api/getVehicles',{
     })
       .then((response) => {
-        if(response.data.data.length === 1){
+        console.log('response',response)
+        console.log('response.data',response.data)
+        console.log('response.data.data',response.data.data)
+        if(response.status === 200){
           console.log(response);
+          this.setState({vehicles: response.data.data});
         }
+        else{
+          console.log("Did");
+        }
+
       })
+      console.log(this.vehicles);
   }
 
   
@@ -111,7 +120,7 @@ saveData(e){
     const make = $('#vehicleMadeYear').val();
     const color = $('#vehicleColor').val();
     const vehicle_image = $('#carImage').val();
-    const customer_id = uuidv1;
+    const customer_id = uuidv1();
     //const nic = $('#inputNic').val();
 
     if(vehicle_no.length != 0 && chassis_no.length != 0 && engine_no.length != 0 && model.length != 0 && make.length != 0 && color.length != 0 && customer_id.length != 0){
@@ -138,7 +147,8 @@ saveData(e){
                 }.bind(this),
                 4000);
           }else{
-              if(response.data.data.length === 204){
+            console.log('response',response);
+              if(response.status === 204){
                 setTimeout(function() {
                     $('#fmsg').html("<strong>Fail!</strong> This customer already exist.");
                     $('#Dmsg').css('display','block');
@@ -164,7 +174,7 @@ saveData(e){
           }
       })
       .catch(function (error) {
-        console.log(error);
+        console.log('error', error);
       });
     }else{
         setTimeout(function() {
@@ -302,19 +312,19 @@ searchDataForDelete(e){
 }
 
   //AJAX Calls
-  componentDidMount() {
-    console.log('COMPONENT HAS MOUNTED');
-    var that = this;
-    fetch('http://localhost:3000/api/countries')
-      .then(function (response) {
-        response.json()
-          .then(function (data) {
-            that.setState({
-              countries: data
-            })
-          })
-      })
-  }
+  // componentDidMount() {
+  //   console.log('COMPONENT HAS MOUNTED');
+  //   var that = this;
+  //   fetch('http://localhost:3000/api/countries')
+  //     .then(function (response) {
+  //       response.json()
+  //         .then(function (data) {
+  //           that.setState({
+  //             countries: data
+  //           })
+  //         })
+  //     })
+  // }
  
    addCountry(event) {
      var that = this;
@@ -361,6 +371,7 @@ searchDataForDelete(e){
 
 
   render() {
+    console.log("This is latest place of data", this.state.vehicles)
     let vehicles = this.state.vehicles;
     return (
 
@@ -397,7 +408,6 @@ searchDataForDelete(e){
                   <TabList>
                     <Tab>Add</Tab>
                     <Tab>Edit</Tab>
-                    <Tab>Delete</Tab>
                     <Tab>View</Tab>
                   </TabList>
                     </ul>
@@ -482,12 +492,6 @@ searchDataForDelete(e){
                     </div>
                   </TabPanel>
                   <TabPanel>
-                    <p>Vehicle - Delete</p>
-                    <div className="page-content">
-      
-                    </div>
-                  </TabPanel>
-                  <TabPanel>
                     <p>Vehicle - View</p>
                     <div className="page-content">
                     
@@ -516,7 +520,7 @@ searchDataForDelete(e){
                         <td>{vehicle.color}</td>
                         <td>{vehicle.vehicle_image}</td>
                         <td>{vehicle.customer_id}</td>
-                        <td><button onClick={this.update.bind(this, vehicle.customer_id)}>Edit</button>|<button onClick={this.removeCountry.bind(this, vehicle.customer_id)}>Remove</button></td>
+                        {/* <td><button onClick={this.update.bind(this, vehicle.customer_id)}>Edit</button>|<button onClick={this.removeCountry.bind(this, vehicle.customer_id)}>Remove</button></td> */}
                     </tr>
                     
                     )}
