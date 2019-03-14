@@ -22,19 +22,14 @@ class items extends React.Component {
 
   componentDidMount(){
     console.log('COMPONENT HAS MOUNTED');
-    var that = this;
-    fetch('http://localhost:8080/api/getVehicles')
-      .then(function(response){
-        response.json()
-         .then(function(data){
-           console.log('response')
-           that.setState({
-             vehicles: data
-           })
-           console.log('1234',data);
-         })
+    //var that = this;
+    axios.post('http://localhost:8080/api/getVehicles',{
+    })
+      .then((response) => {
+        if(response.data.data.length === 1){
+          console.log(response);
+        }
       })
-      
   }
 
   
