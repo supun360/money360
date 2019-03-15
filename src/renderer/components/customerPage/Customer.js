@@ -433,14 +433,26 @@ class Customer extends Component {
                                         <form action="#">
                                             <div className="form-body pal">
                                                 <div className="row">
-                                                    <div className="col-md-6">
+                                                <div className="col-md-4">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <select>
+                                                                    <option value="mrs">Mrs</option>
+                                                                    <option value="mr">Mr</option>
+                                                                    <option value="ms">Ms</option>
+                                                                    <option value="master">Master</option>
+                                                            </select></div>
+                                                            </div>
+                                                        </div>
+                                                    <div className="col-md-4">
                                                         <div className="form-group">
                                                             <div className="input-icon">
                                                                 <i className="fa fa-user"></i>
                                                                 <input id="upinputFirstName" type="text" defaultValue={cusFName} placeholder="First Name" className="form-control" /></div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-6">
+                                                        <div className="col-md-4">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-user"></i>

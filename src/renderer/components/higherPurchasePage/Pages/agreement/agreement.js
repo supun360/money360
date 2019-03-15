@@ -69,8 +69,6 @@ const MyDocument = () => (
       <View style={styles.section}>
         <Text style={styles.header}>{data.companyName}</Text>
         <Text style={styles.title}>{data.Title}</Text>
-       
-       
         <Text style={styles.header2}>Customer Details</Text>
         <Text>NIC: </Text>
         <Text>Name: </Text>
