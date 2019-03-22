@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import { relative } from 'path';
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 //import boostrap from '../script/bootstrap.min.js'
 
 class Customer extends Component {
@@ -11,8 +13,24 @@ class Customer extends Component {
     constructor(prop){
         super(prop);
         this.state = {
-            customer: []
+            customer: [],
+            date:'',
+            dateOB: ''
           }
+          this.handleChange1 = this.handleChange1.bind(this);
+          this.handleChange2 = this.handleChange2.bind(this);
+    }
+
+    handleChange1(date1){
+        this.setState({
+            date: date1
+        })
+    }
+
+    handleChange2(date2){
+        this.setState({
+            dateOB: date2
+        })
     }
 
     updateData(e){
@@ -349,46 +367,59 @@ class Customer extends Component {
                                 <div className="panel-heading">
                                     Customer register form</div>
                                     <div className="panel-body pan">
+                                        
                                         <form action="#">
                                             <div className="form-body pal">
                                                 <div className="row">
-                                                    <div className="col-md-6">
+                                                <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Mr</option>
+                                                                    <option>Mrs</option>
+                                                                    <option>Prof</option>
+                                                                    <option>Rev</option>
+                                                                    <option>Miss</option>
+                                                                    <option>Messrs</option>
+                                                                    <option>Master</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-8">
                                                         <div className="form-group">
                                                             <div className="input-icon">
                                                                 <i className="fa fa-user"></i>
-                                                                <input id="inputFirstName" type="text" placeholder="First Name" className="form-control" /></div>
+                                                                <input id="NameCredentials" type="text" placeholder="Name With Credentials" className="form-control" /></div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-6">
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-md-12">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-user"></i>
-                                                                    <input id="inputLastName" type="text" placeholder="Last Name" className="form-control" /></div>
+                                                                    <input id="FullName" type="text" placeholder="Full Name" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-envelope"></i>
-                                                                    <input id="inputEmail" type="text" placeholder="E-mail" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-phone"></i>
-                                                                    <input id="inputPhone" type="text" placeholder="Phone" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="row">
-                                                        <div className="col-md-6">
+                                                        {/* <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-address-card"></i>
                                                                     <input id="inputNic" type="text" placeholder="NIC/Passport No" className="form-control" /></div>
+                                                            </div>
+                                                        </div> */}
+                                                        <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address(Home No/ Street)" className='form-control'/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-8">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address" className='form-control'/></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -396,21 +427,71 @@ class Customer extends Component {
                                                     <div className="row">
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <select className="form-control" id='country'>
-                                                                    <option>Country</option>
+                                                            <select className="form-control" id='city'>
+                                                                    <option>City</option>
                                                                 </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="inputCity" type="text" placeholder="City" className="form-control" /></div>
+                                                            <select className="form-control" id='district'>
+                                                                    <option>District</option>
+                                                                </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="inputPostCode" type="text" placeholder="Post code" className="form-control" /></div>
+                                                                <select className="form-control" id='country'>
+                                                                    <option>Country</option>
+                                                                </select></div>
                                                         </div>
                                                     </div>
+                                                    <div className="row">
+                                                    <div className="col-md-6">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <input id="IdentyNo" type="text" placeholder="Identiy Card Number" className="form-control" /></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.date} 
+                                                                    onChange={this.handleChange1} 
+                                                                    placeholderText = "ID Date of Issue"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.dateOB} 
+                                                                    onChange={this.handleChange2} 
+                                                                    placeholderText = "Date of Birth"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                    <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Select Gender</option>
+                                                                    <option>Male</option>
+                                                                    <option>Female</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input id="inputAddress" type="text" placeholder="Address" className="form-control" /></div>
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="Occupation" type="text" placeholder="Occupation" className='form-control'/></div>
+                                                            </div>
+                                                    </div>
+                                                    </div> 
                                                     <hr />
                                                     
                                                 <div className="form-actions text-right pal">
@@ -431,57 +512,57 @@ class Customer extends Component {
                                     Customer details</div>
                                     <div className="panel-body pan">
                                         <form action="#">
-                                            <div className="form-body pal">
-                                                <div className="row">
+                                        <div className="form-body pal">
+                                        <div className="row">
                                                 <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Mr</option>
+                                                                    <option>Mrs</option>
+                                                                    <option>Prof</option>
+                                                                    <option>Rev</option>
+                                                                    <option>Miss</option>
+                                                                    <option>Messrs</option>
+                                                                    <option>Master</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-8">
                                                         <div className="form-group">
                                                             <div className="input-icon">
                                                                 <i className="fa fa-user"></i>
-                                                                <select>
-                                                                    <option value="mrs">Mrs</option>
-                                                                    <option value="mr">Mr</option>
-                                                                    <option value="ms">Ms</option>
-                                                                    <option value="master">Master</option>
-                                                            </select></div>
+                                                                <input id="NameCredentials" type="text" placeholder="Name With Credentials" className="form-control" /></div>
                                                             </div>
                                                         </div>
-                                                    <div className="col-md-4">
-                                                        <div className="form-group">
-                                                            <div className="input-icon">
-                                                                <i className="fa fa-user"></i>
-                                                                <input id="upinputFirstName" type="text" defaultValue={cusFName} placeholder="First Name" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-md-12">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-user"></i>
-                                                                    <input id="upinputLastName" type="text" defaultValue={cusLName} placeholder="Last Name" className="form-control" /></div>
+                                                                    <input id="FullName" type="text" placeholder="Full Name" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-envelope"></i>
-                                                                    <input id="upinputEmail" defaultValue={cusEmail} type="text" placeholder="E-mail" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-phone"></i>
-                                                                    <input id="upinputPhone" type="text"defaultValue={cusTel} placeholder="Phone" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="row">
-                                                        <div className="col-md-6">
+                                                        {/* <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-address-card"></i>
-                                                                    <input id="upinputNic" type="text" placeholder="NIC/Passport No" onChange={this.searchData.bind(this)} className="form-control" /></div>
+                                                                    <input id="inputNic" type="text" placeholder="NIC/Passport No" className="form-control" /></div>
+                                                            </div>
+                                                        </div> */}
+                                                        <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address(Home No/ Street)" className='form-control'/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-8">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address" className='form-control'/></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -489,23 +570,72 @@ class Customer extends Component {
                                                     <div className="row">
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <select className="form-control" id='upcountry'>
-                                                                    <option>Country</option>
+                                                            <select className="form-control" id='city'>
+                                                                    <option>City</option>
                                                                 </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="upinputCity" defaultValue={cusCity} type="text" placeholder="City" className="form-control" /></div>
+                                                            <select className="form-control" id='district'>
+                                                                    <option>District</option>
+                                                                </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="upinputPostCode" defaultValue={cusPostalCode} type="text" placeholder="Post code" className="form-control" /></div>
+                                                                <select className="form-control" id='country'>
+                                                                    <option>Country</option>
+                                                                </select></div>
                                                         </div>
                                                     </div>
+                                                    <div className="row">
+                                                    <div className="col-md-6">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <input id="IdentyNo" type="text" placeholder="Identiy Card Number" className="form-control" /></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.date} 
+                                                                    onChange={this.handleChange1} 
+                                                                    placeholderText = "ID Date of Issue"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.dateOB} 
+                                                                    onChange={this.handleChange2} 
+                                                                    placeholderText = "Date of Birth"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                    <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Select Gender</option>
+                                                                    <option>Male</option>
+                                                                    <option>Female</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input id="upinputAddress" defaultValue={cusAddress} type="text" placeholder="Address" className="form-control" /></div>
-                                                    <hr />
-                                                    
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="Occupation" type="text" placeholder="Occupation" className='form-control'/></div>
+                                                            </div>
+                                                    </div>
+                                                    </div> 
+                                                    <hr />                                        
                                                 <div className="form-actions text-right pal">
                                                     <button type="submit" id="btnCus" className="btn btn-primary save" onClick={this.updateData.bind(this)} >
                                                         Update</button>
@@ -514,6 +644,7 @@ class Customer extends Component {
                                                 </div>
                                                 </div>
                                                 </form>
+                                               
                                             </div>
                                         </div>   
                                         </TabPanel>
@@ -524,45 +655,57 @@ class Customer extends Component {
                                     Customer details</div>
                                     <div className="panel-body pan">
                                         <form action="#">
-                                            <div className="form-body pal">
-                                                <div className="row">
-                                                    <div className="col-md-6">
+                                        <div className="form-body pal">
+                                        <div className="row">
+                                                <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Mr</option>
+                                                                    <option>Mrs</option>
+                                                                    <option>Prof</option>
+                                                                    <option>Rev</option>
+                                                                    <option>Miss</option>
+                                                                    <option>Messrs</option>
+                                                                    <option>Master</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-8">
                                                         <div className="form-group">
                                                             <div className="input-icon">
                                                                 <i className="fa fa-user"></i>
-                                                                <input id="deinputFirstName" type="text" value={cusFName} placeholder="First Name" className="form-control" /></div>
+                                                                <input id="NameCredentials" type="text" placeholder="Name With Credentials" className="form-control" /></div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-6">
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-md-12">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-user"></i>
-                                                                    <input id="deinputLastName" type="text" value={cusLName} placeholder="Last Name" className="form-control" /></div>
+                                                                    <input id="FullName" type="text" placeholder="Full Name" className="form-control" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-envelope"></i>
-                                                                    <input id="deinputEmail" type="text" value={cusEmail} placeholder="E-mail" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-group">
-                                                                <div className="input-icon">
-                                                                    <i className="fa fa-phone"></i>
-                                                                    <input id="deinputPhone" type="text" value={cusTel} placeholder="Phone" className="form-control" /></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="row">
-                                                        <div className="col-md-6">
+                                                        {/* <div className="col-md-6">
                                                             <div className="form-group">
                                                                 <div className="input-icon">
                                                                     <i className="fa fa-address-card"></i>
-                                                                    <input id="deinputNic" type="text" onChange={this.searchDataForDelete.bind(this)} placeholder="NIC/Passport No" className="form-control" /></div>
+                                                                    <input id="inputNic" type="text" placeholder="NIC/Passport No" className="form-control" /></div>
+                                                            </div>
+                                                        </div> */}
+                                                        <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address(Home No/ Street)" className='form-control'/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-8">
+                                                            <div className="form-group">
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="AddressNo" type="text" placeholder="Address" className='form-control'/></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -570,21 +713,71 @@ class Customer extends Component {
                                                     <div className="row">
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <select className="form-control" id='decountry'>
-                                                                    <option>Country</option>
+                                                            <select className="form-control" id='city'>
+                                                                    <option>City</option>
                                                                 </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="deinputCity" type="text" value={cusCity} placeholder="City" className="form-control" /></div>
+                                                            <select className="form-control" id='district'>
+                                                                    <option>District</option>
+                                                                </select></div>
                                                         </div>
                                                         <div className="col-md-4">
                                                             <div className="form-group">
-                                                                <input id="deinputPostCode" type="text" value={cusPostalCode} placeholder="Post code" className="form-control" /></div>
+                                                                <select className="form-control" id='country'>
+                                                                    <option>Country</option>
+                                                                </select></div>
                                                         </div>
                                                     </div>
+                                                    <div className="row">
+                                                    <div className="col-md-6">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <input id="IdentyNo" type="text" placeholder="Identiy Card Number" className="form-control" /></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.date} 
+                                                                    onChange={this.handleChange1} 
+                                                                    placeholderText = "ID Date of Issue"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                        <div className="form-group">
+                                                            <div className="input-icon">
+                                                                <i className="fa fa-user"></i>
+                                                                <DatePicker 
+                                                                    selected={this.state.dateOB} 
+                                                                    onChange={this.handleChange2} 
+                                                                    placeholderText = "Date of Birth"
+                                                                    className="form-control"/></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                    <div className="col-md-4">
+                                                            <div className="form-group">
+                                                                <select className="form-control" placeholder="Title" id='Title'>
+                                                                    <option>Select Gender</option>
+                                                                    <option>Male</option>
+                                                                    <option>Female</option>
+                                                                </select></div>
+                                                    </div>
+                                                    <div className="col-md-6">
                                                     <div className="form-group">
-                                                        <input id="deinputAddress" type="text" value={cusAddress} placeholder="Address" className="form-control" /></div>
+                                                                <div className='input-icon'>
+                                                                    <i className='fa fa-user'></i>
+                                                                    <input id="Occupation" type="text" placeholder="Occupation" className='form-control'/></div>
+                                                            </div>
+                                                    </div>
+                                                    </div> 
                                                     <hr />
                                                     
                                                 <div className="form-actions text-right pal">
@@ -593,7 +786,7 @@ class Customer extends Component {
                                                     <button type="submit" id="btnCus" className="btn btn-primary">
                                                         Cancel</button>
                                                 </div>
-                                                </div>
+                                               </div>
                                                 </form>
                                             </div>
                                         </div>   
