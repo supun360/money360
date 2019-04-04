@@ -70,7 +70,7 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-dark" />
             </i><span className="menu-title">Power Draft</span></Link>
         </li>
-        <li><Link to="/savings-accounts"><i className="fa fa-envelope-o">
+        <li><Link to="/savings/savingsAccount"><i className="fa fa-envelope-o">
               <div className="icon-bg bg-primary" />
             </i><span className="menu-title">Savings Accounts</span></Link>
         </li>

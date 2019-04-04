@@ -1,27 +1,14 @@
 import React from 'react'
 import { Route, Switch, Link, BrowserRouter as Router } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
-//import Content from './content';
+import Savings from './savingsAccount';
 import Topbar from './../topbar/index';
-import Content from './Body';
-import Customer from './Customer';
+import Content from './content';
+import $ from 'jquery'
+import axios from 'axios'
 //import './../../stylesheets/bootstrapreact/new.css'
 
 class Sidebar extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      show: true,
-      hide: false
-    }
-  }
-
-  hideCom(){
-    this.setState({
-      show: false,
-      hide: true
-    })
-  }
 
 
     render() {
@@ -33,7 +20,7 @@ class Sidebar extends React.Component{
     <div className="sidebar-collapse menu-scroll bg-grey">
       <ul id="side-menu" className="nav">
         <div className="clearfix" />
-        <li className="active"><Link to="/customer"><i className="fa fa-user fa-fw">
+        <li><Link to="/customer"><i className="fa fa-user fa-fw">
               <div className="icon-bg bg-orange" />
             </i><span className="menu-title">Customer</span></Link></li>
         <li><Link to="/fixed-deposits"><i className="fa fa-desktop fa-fw">
@@ -68,7 +55,7 @@ class Sidebar extends React.Component{
               <div className="icon-bg bg-dark" />
             </i><span className="menu-title">Power Draft</span></Link>
         </li>
-        <li><Link to="/savings/savingsAccount"><i className="fa fa-envelope-o">
+        <li className="active"><Link to="savingsAccount"><i className="fa fa-envelope-o">
               <div className="icon-bg bg-primary" />
             </i><span className="menu-title">Savings Accounts</span></Link>
         </li>
@@ -77,16 +64,8 @@ class Sidebar extends React.Component{
   </nav>
   {/*END SIDEBAR MENU*/}
   {/*BEGIN CHAT FORM*/}
-  {
-                this.state.show?
-                <Content hideCom={this.hideCom.bind(this)}/>
-                :null
-              }
-              {
-                this.state.hide?
-                <Customer/>
-                :null
-              }     
+  
+  <Content/>
   {/*END PAGE WRAPPER*/}
 </div>
 

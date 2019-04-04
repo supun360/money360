@@ -10,6 +10,7 @@ import Reports from './renderer/components/higherPurchasePage/Pages/reports/inde
 import Customer from './renderer/components/customerPage/Index';
 import higherPurchase from './renderer/components/higherPurchasePage/index';
 import * as serviceWorker from './serviceWorker';
+import savings from './renderer/components/savings/index';
 import NotFound from './renderer/views/NotFound';
 //i//mport items from './renderer/components/higherPurchasePage/Pages/items';
 //import HigherPurchase from './components/views/higherPurchase';
@@ -36,6 +37,7 @@ const routing = (
         <Route exact path="/higherPurchase/payments" component={Payments}/>
         <Route exact path="/higherPurchase/agreement" component={Agreement}/>
         <Route exact path="/higherPurchase/reports" component={Reports}/>
+        <Route exact path="/savings/savingsAccount" component={savings}/>
         <Route component={NotFound} />
       </Switch>
         

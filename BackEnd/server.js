@@ -220,6 +220,67 @@ app.post('/update/:customer_id', function(request, response) {
 
 
 
+app.post('/accountsearch', (req, res) => {
+    const nic = req.body.nic;
+
+    pool.connect((err, db, done) =>{
+        if(err){
+            return console.log(err);
+        }
+        else{
+            try{
+                db.query('SELECT * FROM public."accounts" WHERE "nicno" = $1',[nic], (err, table, fields) => {
+                    done();
+                    if(err){
+                        res.json({status: false, data: err})
+                    }
+                    else{
+                        res.json({status: true, data: table.rows})
+                    }
+                });
+            }catch(Ex){
+
+            }
+                
+        }
+    })
+})
+
+
+//===================>
+
+app.post('/savings/create', (req, res)=>{
+    const accno = req.body.accno;
+    const acctype = req.body.acctype;
+    const nicno = req.body.nicno;
+    const business = req.body.business;
+    const taxno = req.body.taxno;
+    const citizenship = req.body.citizenship;
+    const perpose = req.body.perpose;
+    const income = req.body.income;
+    const funds = req.body.funds;
+    const property1 = req.body.property1;
+    const property2 = req.body.property2;
+    //get the system date and send to databse
+
+    pool.connect((err, db, done) =>{
+        if(err){
+            return console.log(err);
+        }
+        else{
+            db.query('INSERT INTO public."accounts"("accno","acctype","nicno", "business", "taxno", "citizenship", "perpose", "income", "funds", "property1", "property2") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',[accno,acctype,nicno,business,taxno,citizenship,perpose,income,funds,property1,property2], (err, table) => {
+                done();
+                if(err){
+                    res.json({msg: false, data: err})
+                }
+                else{
+                    res.json({msg:true, table:table});
+                }
+            });
+        }
+    })
+})
+
 
 app.post('/api/add-vehicles', function(request, response){
     var vehicle_no = request.body.vehicle_no;
