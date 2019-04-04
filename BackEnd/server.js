@@ -268,7 +268,7 @@ app.post('/savings/create', (req, res)=>{
             return console.log(err);
         }
         else{
-            db.query('INSERT INTO public."accounts"("accno","acctype","nicno", "business", "taxno", "citizenship", "perpose", "income", "funds", "property1", "property2") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',[accno,acctype,nicno,business,taxno,citizenship,perpose,income,funds,property1,property2], (err, table) => {
+            db.query('INSERT INTO public."accounts"("accno","acctype","business", "taxno", "citizenship", "perpose", "income", "funds", "property1", "property2", "nicno",) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)',[accno,acctype,nicno,business,taxno,citizenship,perpose,income,funds,property1,property2], (err, table) => {
                 done();
                 if(err){
                     res.json({msg: false, data: err})
